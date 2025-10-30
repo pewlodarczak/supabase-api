@@ -5,7 +5,8 @@ use axum::{
 };
 use reqwest::Client;
 use serde::{Deserialize, Serialize};
-use std::path::Path;
+//use std::path::Path;
+use std::net::SocketAddr;
 
 #[derive(Debug, Serialize, Deserialize)]
 struct User {
@@ -53,6 +54,10 @@ async fn shuttle_main() -> shuttle_axum::ShuttleAxum {
     let app = Router::new()
         .route("/", get(index))
         .route("/users", get(get_users));
+
+    // Create a socket address with a fixed port
+    let addr = SocketAddr::from(([0, 0, 0, 0], 8000));
+    let listener = tokio::net::TcpListener::bind(addr).await.unwrap();
 
     Ok(app.into())
 }
