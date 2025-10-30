@@ -56,7 +56,7 @@ async fn shuttle_main() -> shuttle_axum::ShuttleAxum {
         .route("/users", get(get_users));
 
     // Create a socket address with a fixed port
-    let addr = SocketAddr::from(([0, 0, 0, 0], 8000));
+    let addr = SocketAddr::from(([0, 0, 0, 0], 8081));
     let listener = tokio::net::TcpListener::bind(addr).await.unwrap();
 
     Ok(app.into())
