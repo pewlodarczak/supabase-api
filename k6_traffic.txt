@@ -1,0 +1,2 @@
+// Install k6 load testing tool using winget (PowerShell)
+winget install k6

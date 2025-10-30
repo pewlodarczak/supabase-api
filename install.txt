@@ -1,0 +1,17 @@
+cargo install cargo-shuttle --version 0.56.0
+
+cargo shuttle login
+
+cargo shuttle init --template axum
+
+# for .env
+# cargo shuttle secrets add SUPABASE_URL=https://vceberzqpcutgbhcwvaq.supabase.co
+# cargo shuttle secrets add SUPABASE_KEY=eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6InZjZWJlcnpxcGN1dGdiaGN3dmFxIiwicm9sZSI6ImFub24iLCJpYXQiOjE3Mjc0NDAyMzksImV4cCI6MjA0MzAxNjIzOX0.zZHjTglFaKwYlsMkpDj3ScEz6_6mz2LN1WMxm8cAmgA
+
+cargo-shuttle run
+
+cargo-shuttle deploy
+cargo shuttle logs
+cargo shuttle open
+cargo shuttle status
+cargo shuttle remove

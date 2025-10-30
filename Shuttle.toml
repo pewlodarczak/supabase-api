@@ -1,0 +1,6 @@
+name = "supabase_api"
+project_type = "rust"
+
+[secrets]
+SUPABASE_URL="https://vceberzqpcutgbhcwvaq.supabase.co/rest/v1/users"
+SUPABASE_API_KEY="eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6InZjZWJlcnpxcGN1dGdiaGN3dmFxIiwicm9sZSI6ImFub24iLCJpYXQiOjE3Mjc0NDAyMzksImV4cCI6MjA0MzAxNjIzOX0.zZHjTglFaKwYlsMkpDj3ScEz6_6mz2LN1WMxm8cAmgA"

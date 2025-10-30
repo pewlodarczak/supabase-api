@@ -1,0 +1,105 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Supabase API Demo</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            max-width: 800px;
+            margin: 0 auto;
+            padding: 20px;
+            background-color: #f5f5f5;
+        }
+        .container {
+            background: white;
+            padding: 30px;
+            border-radius: 10px;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+        }
+        h1 {
+            color: #333;
+            text-align: center;
+        }
+        .endpoints {
+            margin: 30px 0;
+        }
+        .endpoint {
+            background: #f8f9fa;
+            padding: 15px;
+            border-radius: 5px;
+            margin: 10px 0;
+            border-left: 4px solid #007bff;
+        }
+        code {
+            background: #e9ecef;
+            padding: 2px 6px;
+            border-radius: 3px;
+            font-family: 'Courier New', monospace;
+        }
+        .btn {
+            display: inline-block;
+            padding: 10px 20px;
+            background: #007bff;
+            color: white;
+            text-decoration: none;
+            border-radius: 5px;
+            margin: 10px 5px;
+        }
+        .btn:hover {
+            background: #0056b3;
+        }
+    </style>
+    <script
+            src="https://app.rybbit.io/api/script.js"
+            data-site-id="f55c4ec41de6"
+            defer
+    ></script>
+</head>
+<body>
+<div class="container">
+    <h1>🚀 Supabase API Demo</h1>
+    <p>Welcome to the Supabase API demonstration. This service provides access to user data stored in Supabase.</p>
+
+    <div class="endpoints">
+        <h2>Available Endpoints</h2>
+
+        <div class="endpoint">
+            <h3>GET /users</h3>
+            <p>Retrieve all users from the Supabase database.</p>
+            <p><strong>Response:</strong> JSON array of user objects</p>
+            <a href="/users" class="btn">View Users API</a>
+            <button onclick="fetchUsers()" class="btn">Test API</button>
+        </div>
+    </div>
+
+    <div id="result" style="margin-top: 20px;"></div>
+</div>
+
+<script>
+    async function fetchUsers() {
+        const resultDiv = document.getElementById('result');
+        resultDiv.innerHTML = '<p>Loading users...</p>';
+
+        try {
+            const response = await fetch('/users');
+            const data = await response.json();
+
+            if (response.ok) {
+                resultDiv.innerHTML = `
+                        <h3>API Response:</h3>
+                        <pre style="background: #f8f9fa; padding: 15px; border-radius: 5px; overflow-x: auto;">
+${JSON.stringify(data, null, 2)}
+                        </pre>
+                    `;
+            } else {
+                resultDiv.innerHTML = `<p style="color: red;">Error: ${data}</p>`;
+            }
+        } catch (error) {
+            resultDiv.innerHTML = `<p style="color: red;">Error: ${error.message}</p>`;
+        }
+    }
+</script>
+</body>
+</html>
